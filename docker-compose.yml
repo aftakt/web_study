@@ -38,6 +38,7 @@ services:
       - "80:80"
     volumes:
       - ./webApp:/var/www/html
+      - ./webApp/uploads:/var/www/html/uploads
     networks:
       - webnet
     depends_on:
@@ -45,3 +46,4 @@ services:
 
 networks:
   webnet:
+
