@@ -1,0 +1,47 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    platform: linux/arm64/v8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: student1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - webnet
+
+  phpmyadmin:
+    image: arm64v8/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - db
+    networks:
+      - webnet
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./webApp:/var/www/html
+    networks:
+      - webnet
+    depends_on:
+      - db
+
+networks:
+  webnet:
