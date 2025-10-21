@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "web_sftp_project"
+		},
+		{
+			"path": "python"
+		},
+		{
+			"path": "web_study"
+		},
+		{
+			"path": "web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web_study"
+	}
+}
