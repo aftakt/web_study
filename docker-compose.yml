@@ -9,8 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: user
       MYSQL_USER: admin
-      MYSQL_PASSWORD: student1234
-    ports:
+      MYSQL_PASSWORD: 노말틱때 썼던 비번
       - "3306:3306"
     volumes:
       - ./mysql:/var/lib/mysql
